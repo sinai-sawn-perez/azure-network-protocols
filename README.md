@@ -6,10 +6,6 @@
 In this tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark as well as experiment with Network Security Groups. <br />
 
 
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: Azure Virtual Machines, Wireshark, and Network Security Groups](https://www.youtube.com)
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -25,33 +21,47 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Create Virtual Machines
+- Install Wireshark on Windows 10 Machine
+- Observe Traffic
+- Configure a Firewall
 
 <h2>Actions and Observations</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/user-attachments/assets/19e55a88-e556-44d3-9c64-ed53b2a26df0" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Within the Windows 10 machine, open Wireshark and begin packet capture - set a filter to only observe ICMP traffic. Then retrieve the private IP address for the Linux virtual machine and ping it from the Windows 10 machine.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/user-attachments/assets/fe4986cf-fced-4262-8201-ca8d0c67e2e1" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+From the Windows VM ping a public website, such as Google, using command line or PowerShell. Observe the ICMP traffic in Wireshark.
+</p>
+
+<p>
+<img src="https://github.com/user-attachments/assets/0a5e1df4-bd6a-4399-b3e5-baf24c1fc455" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Using Wireshark filter to moniter DHCP traffic. In PowerShell issue your VM a new IP address and observe the resulting network traffic.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/user-attachments/assets/e1094451-e70a-4c5f-8714-d933980f8a21" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In the Windows VM, filter for SSH traffic using Wireshark. Open PowerShell and "SSH into" the Linux VM using its private IP address. Type commands and observe the SSH traffic in Wireshark.
 </p>
 <br />
+
+<p>
+<img src="https://github.com/user-attachments/assets/3a4ce878-36c3-4ff6-873f-0a84186a5842" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Initiate a perpetual ping sending from the Windows 10 VM to the Linux VM. Filter for ICMP in Wireshark to observe the traffic. In Azure, open the Network Security Groups for the Linux VM and disable inbound ICMP traffic. Then return to Wireshark on the Windows 10 VM and observe the perpetual ping activity.
+</p>
