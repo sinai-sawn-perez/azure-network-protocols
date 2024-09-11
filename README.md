@@ -21,10 +21,10 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Create Virtual Machines
+- Create Virtual Machines in Azure
 - Install Wireshark on Windows 10 Machine
-- Observe Traffic
-- Configure a Firewall
+- Observe Traffic using Wireshark
+- Configure a Firewall in Azure
 
 <h2>Actions and Observations</h2>
 
