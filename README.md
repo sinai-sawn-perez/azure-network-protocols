@@ -32,7 +32,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <img src="https://github.com/user-attachments/assets/19e55a88-e556-44d3-9c64-ed53b2a26df0" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Within the Windows 10 machine, open Wireshark and begin packet capture - set a filter to only observe ICMP traffic. Then retrieve the private IP address for the Linux virtual machine and ping it from the Windows 10 machine.
+After creating both VMs (Virtual Machines) in Azure, log into the Windows 10 machine then install Wireshark. When the installation is complete, open Wireshark and begin packet capture - set a filter to only observe ICMP traffic. Then retrieve the private IP address for the Ubuntu VM and ping it from the Windows 10 VM using Powershell. In the image above, notice that in the Powershell window 4 packets of information were sent from the Windows 10 VM to the Ubuntu VM successfully.
 </p>
 <br />
 
@@ -55,7 +55,7 @@ Using Wireshark filter to moniter DHCP traffic. In PowerShell issue your VM a ne
 <img src="https://github.com/user-attachments/assets/e1094451-e70a-4c5f-8714-d933980f8a21" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-In the Windows VM, filter for SSH traffic using Wireshark. Open PowerShell and "SSH into" the Linux VM using its private IP address. Type commands and observe the SSH traffic in Wireshark.
+In the Windows VM, filter for SSH traffic using Wireshark. Open PowerShell and "SSH into" the Ubuntu VM using its private IP address. Type commands and observe the SSH traffic in Wireshark.
 </p>
 <br />
 
@@ -63,5 +63,5 @@ In the Windows VM, filter for SSH traffic using Wireshark. Open PowerShell and "
 <img src="https://github.com/user-attachments/assets/3a4ce878-36c3-4ff6-873f-0a84186a5842" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Initiate a perpetual ping sending from the Windows 10 VM to the Linux VM. Filter for ICMP in Wireshark to observe the traffic. In Azure, open the Network Security Groups for the Linux VM and disable inbound ICMP traffic. Then return to Wireshark on the Windows 10 VM and observe the perpetual ping activity.
+Initiate a perpetual ping sending from the Windows 10 VM to the Ubuntu VM. Filter for ICMP in Wireshark to observe the traffic. In Azure, open the Network Security Groups for the Ubuntu VM and disable inbound ICMP traffic. Then return to Wireshark on the Windows 10 VM and observe the perpetual ping activity.
 </p>
