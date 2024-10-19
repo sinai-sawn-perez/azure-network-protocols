@@ -40,14 +40,14 @@ After creating both VMs (Virtual Machines) in Azure, log into the Windows 10 mac
 <img src="https://github.com/user-attachments/assets/fe4986cf-fced-4262-8201-ca8d0c67e2e1" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-From the Windows VM ping a public website, such as Google, using command line or PowerShell. Observe the ICMP traffic in Wireshark.
+From the Windows VM ping a public website, such as Google, using PowerShell. Observe the ICMP traffic in Wireshark. As shown in the image above, you should notice 4 packets of information successfully transmit from the Windows VM to the public domain.
 </p>
 
 <p>
 <img src="https://github.com/user-attachments/assets/0a5e1df4-bd6a-4399-b3e5-baf24c1fc455" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Using Wireshark filter to moniter DHCP traffic. In PowerShell issue your VM a new IP address and observe the resulting network traffic.
+In the Windows 10 VM set the Wireshark filter to moniter now only DHCP traffic. Using PowerShell type in "ipconfig/ renew" to issue the Windows 10 VM a new IP address and observe the resulting network traffic. As shown in the image above, Wireshark will reveal the Windows 10 VM requesting a new ip address from the DHCP server.
 </p>
 <br />
 
@@ -55,7 +55,7 @@ Using Wireshark filter to moniter DHCP traffic. In PowerShell issue your VM a ne
 <img src="https://github.com/user-attachments/assets/e1094451-e70a-4c5f-8714-d933980f8a21" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-In the Windows VM, filter for SSH traffic using Wireshark. Open PowerShell and "SSH into" the Ubuntu VM using its private IP address. Type commands and observe the SSH traffic in Wireshark.
+In the Windows VM, filter for SSH traffic using Wireshark. Open PowerShell in the Windows 10 VM and use SSH protocol to remotely access the Ubuntu VM using its private IP address. Notice as you execute commands the SSH traffic is revealed by Wireshark. In the example above, I create a text file containing the text "hi" in the Ubuntu VM from the Windows 10 VM Powershell.
 </p>
 <br />
 
@@ -63,5 +63,5 @@ In the Windows VM, filter for SSH traffic using Wireshark. Open PowerShell and "
 <img src="https://github.com/user-attachments/assets/3a4ce878-36c3-4ff6-873f-0a84186a5842" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Initiate a perpetual ping sending from the Windows 10 VM to the Ubuntu VM. Filter for ICMP in Wireshark to observe the traffic. In Azure, open the Network Security Groups for the Ubuntu VM and disable inbound ICMP traffic. Then return to Wireshark on the Windows 10 VM and observe the perpetual ping activity.
+Initiate a perpetual ping sending from the Windows 10 VM to the Ubuntu VM. Filter for ICMP in Wireshark to observe the traffic. In Azure, open the Network Security Groups for the Ubuntu VM and disable inbound ICMP traffic. Then return to Wireshark on the Windows 10 VM and observe the perpetual ping activity. Notice that thing ping requests time out, as shown in the example above.
 </p>
